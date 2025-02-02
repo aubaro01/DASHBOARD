@@ -1,8 +1,8 @@
 <?php
-require 'php/config.php'; // Inclui a configuração da sessão
+require '/App/database/config.php'; 
 
-require_once 'php/db.php';
-require_once 'php/funcs.php'; 
+require_once '/App/database/db.php';
+require_once '/App/models/funcs.phpfuncs.php'; 
 
 $db = new DB();
 
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['USER_id'] = $row['USER_id'];
             }
 
-            header('Location: php/dash.php');
+            header('Location: /App/admin/dash.php');
             exit;
         } else {
             $error_message = "Credenciais inválidas. Por favor, tente novamente.";
@@ -46,8 +46,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DashPro</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="shortcut icon" href="img/logo_icon.png">
+    <link rel="stylesheet" href="/assest/css/style.css">
+    <link rel="shortcut icon" href="/assest/img/logo_icon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
 </head>
 <body>
@@ -116,7 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <div class="text_prod">
         <p><strong>PRODUCT</strong></p>
       </div>
-      <img class="dashboard-image"src="img/dash.jpg" alt="Dashboard exemplo">
+      <img class="dashboard-image"src="/assest/img/dash.jpg" alt="Dashboard exemplo">
     </section>
 
     <div class="container_2" style="margin-top: 150px;">
@@ -172,7 +172,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="right-side">
                     <div class="topic-text">Contact Us</div>
                     <p>We can help you?</p>
-                    <form action="/php/Contact.php" method="POST">
+                    <form action="/public/Contact.php" method="POST">
                         <div class="input-box">
                             <input type="text" name="name" placeholder="Name" required>
                         </div>
